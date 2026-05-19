@@ -1,0 +1,38 @@
+# Music Recommendation System
+
+A capstone project that builds and evaluates a music recommendation engine using the Million Song Dataset. The system predicts the top 10 tracks a given user is most likely to enjoy based on their listening history.
+
+## Problem
+
+Digital music platforms depend on surfacing relevant content to keep listeners engaged. This project frames the challenge as a matrix completion and ranking problem: given a sparse user-song interaction matrix built from play counts, predict preference scores for unheard tracks and return the highest-ranked results.
+
+## Data
+
+The project uses the [Taste Profile Subset](http://millionsongdataset.com/) from the Million Song Dataset, which provides two files:
+
+- **song_data** — song metadata: title, album, artist, and year of release
+- **count_data** — implicit feedback: user ID, song ID, and play count
+
+The raw dataset contains roughly two million user-song interactions and one million song records. After filtering for minimum listener activity and song interaction thresholds, the working dataset is reduced to 138,301 rows covering 3,337 users, 620 songs, and 247 artists.
+
+## Approach
+
+Two recommendation strategies are implemented and compared:
+
+**Popularity-based filtering** ranks songs by aggregate or average play count across all users. It serves as a non-personalized baseline and is sensitive to the minimum play count threshold chosen.
+
+**Collaborative filtering (user-user similarity)** uses the `surprise` library to identify users with similar listening patterns and recommend songs those users enjoyed. Play count acts as a proxy for implicit preference. Models are evaluated on Precision@K, Recall@K, RMSE, and F1@K.
+
+## Key Findings
+
+- A baseline KNNBasic user-user model achieved Precision@K of 0.40 and Recall@K of 0.71 before tuning.
+- Hyperparameter tuning produced marginal gains, suggesting the model has reached its performance ceiling on this dataset.
+- Nearly 48% of songs have no valid release year, so year is excluded as a model feature and retained only as optional post-retrieval metadata.
+- Popularity-based recommendations are highly sensitive to the aggregation method chosen (sum vs. mean play count) and the minimum interaction threshold applied.
+
+## Repository Contents
+
+| File | Description |
+|------|-------------|
+| [2026.05.03.music-recommendation-system.ipynb](2026.05.03.music-recommendation-system.ipynb) | Full analysis: data preparation, EDA, model training, evaluation, and recommendations |
+| [2026.05.04.music-recommendation-system.pdf](2026.05.04.music-recommendation-system.pdf) | Presentation summarizing the problem, methodology, and results |
