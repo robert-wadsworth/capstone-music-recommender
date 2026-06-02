@@ -1,6 +1,8 @@
 # Music Recommendation System
 
-A capstone project that builds and evaluates a music recommendation engine using the Million Song Dataset. The system predicts the top 10 tracks a given user is most likely to enjoy based on their listening history.
+A capstone project completed as part of the [Applied AI and Data Science Program](https://professional.mit.edu/course-catalog/applied-ai-and-data-science-program) from MIT Professional Education — a 14-week certificate program covering machine learning, recommendation systems, deep learning, and generative AI, developed and taught by MIT faculty.
+
+The project builds and evaluates a music recommendation engine using the Million Song Dataset. The system predicts the top 10 tracks a given user is most likely to enjoy based on their listening history.
 
 ## Problem
 
@@ -14,6 +16,8 @@ The project uses the [Taste Profile Subset](http://millionsongdataset.com/) from
 - **count_data** — implicit feedback: user ID, song ID, and play count
 
 The raw dataset contains roughly two million user-song interactions and one million song records. After filtering for minimum listener activity and song interaction thresholds, the working dataset is reduced to 138,301 rows covering 3,337 users, 620 songs, and 247 artists.
+
+> **Note:** The data files are not included in this repository — they were sourced from proprietary course material and exceed GitHub's file size limits. The equivalent public source is the [Million Song Dataset](http://millionsongdataset.com/) and its associated [Taste Profile Subset](http://millionsongdataset.com/tasteprofile/).
 
 ## Approach
 
@@ -34,5 +38,5 @@ Two recommendation strategies are implemented and compared:
 
 | File | Description |
 |------|-------------|
-| [2026.05.03.music-recommendation-system.ipynb](2026.05.03.music-recommendation-system.ipynb) | Full analysis: data preparation, EDA, model training, evaluation, and recommendations |
-| [2026.05.04.music-recommendation-system.pdf](2026.05.04.music-recommendation-system.pdf) | Presentation summarizing the problem, methodology, and results |
+| [music_recommender.ipynb](music_recommender.ipynb) | Full analysis: data preparation, EDA, model training, evaluation, and recommendations |
+| [music_recommender.pdf](music_recommender.pdf) | Presentation summarizing the problem, methodology, and results |

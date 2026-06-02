@@ -1,0 +1,17 @@
+name: music-recommender
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy=1.26.0
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - nltk
+  - jupyter
+  - ipykernel
+  - pip
+  - pip:
+      - scikit-surprise
